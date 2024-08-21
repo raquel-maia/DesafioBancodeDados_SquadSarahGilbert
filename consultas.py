@@ -6,6 +6,10 @@ import conexao as conn
 
 # Listar todos os livros disponíveis. | raquel
 
+list_books = conn.cursor.execute('SELECT titulo FROM livros')
+for livros in list_books:
+    print(livros)
+
 # Encontrar todos os livros emprestados no momento. | Livia
 
 # Localizar os livros escritos por um autor específico. | Leticia
