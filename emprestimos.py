@@ -48,14 +48,3 @@ def mostrar_emprestimos_em_atraso():
         print("Empréstimos em atraso:")
         for emprestimo in emprestimos_em_atraso:
             print(f"Exemplar {emprestimo[0]}, Usuário {emprestimo[1]}, Data do Empréstimo {emprestimo[2]}, Prazo de Devolução {emprestimo[3]}")
-
-if __name__ == "__main__":
-    # Exemplo de uso das funções
-    # Registrar um empréstimo
-    registrar_emprestimo(1, 123, '2024-08-01', '2024-08-15')
-
-    # Devolver um livro
-    devolver_livro(1, 123)
-
-    # Mostrar empréstimos em atraso
-    mostrar_emprestimos_em_atraso()
