@@ -29,7 +29,7 @@ conn.cursor.execute('''
 
 #Tabela livros_generos - relacao muitos para muitos
 conn.cursor.execute('''
-    CREATE TABLE IF NOT EXISTS livros_autores (
+    CREATE TABLE IF NOT EXISTS livros_generos (
         id_livro INTEGER NOT NULL,
         id_genero INTEGER NOT NULL,
         PRIMARY KEY (id_livro, id_genero),
