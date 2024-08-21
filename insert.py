@@ -1,5 +1,13 @@
+'''
+2. Inserção de Dados:
+- Insira dados de exemplo nas tabelas para simular um ambiente de
+biblioteca. Certifique-se de incluir uma variedade de livros, autores e
+editoras.
+'''
+
 import conexao as conn
 
+# Tabela livros
 conn.cursor.execute('''
     INSERT INTO livros (
         id_livro,
