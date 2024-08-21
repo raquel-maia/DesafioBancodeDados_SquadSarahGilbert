@@ -7,7 +7,7 @@ um autor.
 
 import conexao as conn
 
-# Atualizar | Jessica
+# Atualizar | Jessica+
 
 # Excluir | Nadi
 
