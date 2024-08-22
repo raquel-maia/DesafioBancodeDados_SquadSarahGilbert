@@ -74,5 +74,13 @@ conn.cursor.execute('''
         (7, 5, 14);
 ''')
 
+#Tabela emprestimo
+conn.cursor.execute('''
+    INSERT INTO emprestimos(id_livro, id_exemplar, id_usuario, DataEmprestimo, DataDevolucao, DataDevolvido) VALUES
+        (1, 1, 1, 20/08/2024, 27/08/2024, NULL)
+''')
+   
+
+
 conn.conexao.commit()
 conn.conexao.close
