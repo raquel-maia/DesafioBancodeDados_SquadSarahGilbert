@@ -12,19 +12,21 @@ import conexao as conn
 # Excluir | Nadi
 #Excluir tabelas
 '''
-conn.cursor.execute('DROP TABLE livros')
-conn.cursor.execute('DROP TABLE generos')
-conn.cursor.execute('DROP TABLE livros_generos')
-conn.cursor.execute('DROP TABLE exemplares')
-conn.cursor.execute('DROP TABLE pessoas')
-conn.cursor.execute('DROP TABLE usuarios')
-conn.cursor.execute('DROP TABLE autores')
-conn.cursor.execute('DROP TABLE autores_livros')
+conn.cursor.execute('DROP TABLE IF EXISTS livros')
+conn.cursor.execute('DROP TABLE IF EXISTS generos')
+conn.cursor.execute('DROP TABLE IF EXISTS livros_generos')
+conn.cursor.execute('DROP TABLE IF EXISTS exemplares')
+conn.cursor.execute('DROP TABLE IF EXISTS pessoas')
+conn.cursor.execute('DROP TABLE IF EXISTS usuarios')
+conn.cursor.execute('DROP TABLE IF EXISTS autores')
+conn.cursor.execute('DROP TABLE IF EXISTS autores_livros')
+conn.cursor.execute('DROP TABLE IF EXISTS emprestimos')
 '''
 
 #Excluir um autor
 id_autor = 7
-conn.cursor.execute('DELETE FROM autores WHERE id = id_autor')
+#conn.cursor.execute('DELETE FROM autores WHERE id = id_autor')
+conn.cursor.execute('DROP TABLE IF EXISTS livros')
 
 conn.conexao.commit()
 conn.conexao.close()

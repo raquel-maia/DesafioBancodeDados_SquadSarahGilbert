@@ -10,11 +10,9 @@ estrangeiras conforme apropriado.
 import conexao as conn
 
 #Tabela livros
-
-conn.cursor.execute('DROP TABLE livros')
 conn.cursor.execute('''
     CREATE TABLE IF NOT EXISTS livros (
-        id_livro INTEGER PRIMARY KEY NOT NULL,
+        id_livro INTEGER PRIMARY KEY,
         titulo VARCHAR(255) NOT NULL,
         editora VARCHAR(255) NOT NULL,
         num_max_renovacoes INTEGER
@@ -24,7 +22,7 @@ conn.cursor.execute('''
 #Tabela generos
 conn.cursor.execute('''
     CREATE TABLE IF NOT EXISTS generos (
-        id_genero INTEGER PRIMARY KEY NOT NULL,
+        id_genero INTEGER PRIMARY KEY,
         nome VARCHAR(255) NOT NULL
     );
 ''') 
@@ -35,7 +33,7 @@ conn.cursor.execute('''
         id_livro INTEGER NOT NULL,
         id_genero INTEGER NOT NULL,
         PRIMARY KEY (id_livro, id_genero),
-        FOREIGN KEY (id_livro) REFERENCES livros(id_livro) ON DELETE NO ACTION ON UPDATE NO ACTION,
+        FOREIGN KEY (id_livro) REFERENCES livros(id_livro) ON DELETE NO ACTION ON UPDATE NO ACTION
         FOREIGN KEY (id_genero) REFERENCES generos(id_genero) ON DELETE NO ACTION ON UPDATE NO ACTION
     );
 ''')
@@ -43,7 +41,7 @@ conn.cursor.execute('''
 #Tabela exemplares
 conn.cursor.execute('''
     CREATE TABLE IF NOT EXISTS exemplares (
-        id_exemplar INTEGER PRIMARY KEY NOT NULL,
+        id_exemplar INTEGER PRIMARY KEY,
         id_livro INTEGER,
         FOREIGN KEY (id_livro) REFERENCES livros(id_livro)
     );
@@ -52,7 +50,7 @@ conn.cursor.execute('''
 #Tabela pessoas
 conn.cursor.execute('''
     CREATE TABLE IF NOT EXISTS pessoas (
-        id_pessoa INTEGER PRIMARY KEY NOT NULL,
+        id_pessoa INTEGER PRIMARY KEY,
         nome VARCHAR(255) NOT NULL,
         email VARCHAR(255) NOT NULL
     );
@@ -87,7 +85,7 @@ conn.cursor.execute('''
         id_livro INTEGER NOT NULL,
         id_pessoa INTEGER NOT NULL,
         PRIMARY KEY (id_autor, id_livro, id_pessoa),
-        FOREIGN KEY (id_livro) REFERENCES livros(id_livro) ON DELETE NO ACTION ON UPDATE NO ACTION,
+        FOREIGN KEY (id_livro) REFERENCES livros(id_livro) ON DELETE NO ACTION ON UPDATE NO ACTION
         FOREIGN KEY (id_autor, id_pessoa) REFERENCES autores(id_autor, id_pessoa) ON DELETE NO ACTION ON UPDATE NO ACTION
     );
 ''')
@@ -95,8 +93,7 @@ conn.cursor.execute('''
 #Tabela emprestimos
 conn.cursor.execute('''
     CREATE TABLE IF NOT EXISTS emprestimos (
-        id_emprestimo INTEGER PRIMARY KEY,
-        id_livro INTEGER NOT NULL,
+        id_emprestimo INTEGER PRIMARY KEY NOT NULL,
         id_exemplar INTEGER NOT NULL,
         id_usuario INTEGER NOT NULL,
         DataEmprestimo DATE,
@@ -104,7 +101,7 @@ conn.cursor.execute('''
         DataDevolvido DATE,
         FOREIGN KEY (id_exemplar) REFERENCES exemplares(id_exemplar) ON DELETE NO ACTION ON UPDATE NO ACTION
         FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario) ON DELETE NO ACTION ON UPDATE NO ACTION
-        FOREIGN KEY (id_livro) REFERENCES livros(id_livro) ON DELETE NO ACTION ON UPDATE NO ACTION
+
     );
 ''')
 
