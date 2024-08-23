@@ -12,6 +12,15 @@ for livros in list_books:
 
 # Encontrar todos os livros emprestados no momento. | Livia
 
+loan = conn.cursor.execute('''
+                                SELECT livros.titulo, emprestimos.DataEmprestimo, emprestimos.DataDevolucao
+                                FROM emprestimos
+                                JOIN livros ON emprestimos.id_livro = livros.id_livro
+                                JOIN usuarios ON emprestimos.id_usuario = usuarios.id_usuario
+                                WHERE emprestimos.DataDevolvido IS NULL
+                           ''')
+print(loan)
+
 # Localizar os livros escritos por um autor específico. | Leticia
 join_result = conn.cursor.execute('''
                                     SELECT * 
