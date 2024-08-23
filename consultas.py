@@ -29,7 +29,8 @@ join_result = conn.cursor.execute('''
                                     JOIN pessoas ON pessoas.id_pessoa = autores_livros.id_pessoa 
                                     WHERE pessoas.nome = "Nilo Ney Coutinho";
                                 ''')
-print(join_result)
+for i in join_result:
+    print(i)
 
 # Verificar o número de cópias disponíveis de um determinado livro. | Jéssica
 
