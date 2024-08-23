@@ -62,7 +62,7 @@ conn.cursor.execute('''
         id_usuario INTEGER NOT NULL,
         id_pessoa INTEGER NOT NULL,
         telefone INTEGER NOT NULL,
-        nacionalidade VARCHAR(200) NOT NULL
+        nacionalidade VARCHAR(200) NOT NULL,
         PRIMARY KEY (id_usuario, id_pessoa),
         FOREIGN KEY (id_pessoa) REFERENCES pessoas(id_pessoa) ON DELETE NO ACTION ON UPDATE NO ACTION
     );
@@ -87,6 +87,22 @@ conn.cursor.execute('''
         PRIMARY KEY (id_autor, id_livro, id_pessoa),
         FOREIGN KEY (id_livro) REFERENCES livros(id_livro) ON DELETE NO ACTION ON UPDATE NO ACTION
         FOREIGN KEY (id_autor, id_pessoa) REFERENCES autores(id_autor, id_pessoa) ON DELETE NO ACTION ON UPDATE NO ACTION
+    );
+''')
+
+#Tabela emprestimos
+conn.cursor.execute('''
+    CREATE TABLE IF NOT EXISTS emprestimos (
+        id_emprestimo INTEGER PRIMARY KEY,
+        id_livro INTEGER NOT NULL,
+        id_exemplar INTEGER NOT NULL,
+        id_usuario INTEGER NOT NULL,
+        DataEmprestimo DATE,
+        DataDevolucao DATE,
+        DataDevolvido DATE,
+        FOREIGN KEY (id_exemplar) REFERENCES exemplares(id_exemplar) ON DELETE NO ACTION ON UPDATE NO ACTION
+        FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario) ON DELETE NO ACTION ON UPDATE NO ACTION
+        FOREIGN KEY (id_livro) REFERENCES livros(id_livro) ON DELETE NO ACTION ON UPDATE NO ACTION
     );
 ''')
 
