@@ -17,8 +17,28 @@ conn.cursor.execute('''
         (5, "Algoritmos e Programação de Computadores", "GEN LTC", 4);       
 ''')
 
+"""# Tabela generos
+conn.cursor.execute('''
+    INSERT INTO generos (id_genero, nome) VALUES 
+        ( , ""),
+        ( , "");       
+''')
 
-# Tabela pessoas e as filhas
+# Tabela livro_generos
+conn.cursor.execute('''
+    INSERT INTO livros_generos (id_livro, id_genero) VALUES 
+        ( , ),
+        ( , );       
+''')
+
+# Tabela exemplares
+conn.cursor.execute('''
+    INSERT INTO exemplares (id_exemplar, id_livro) VALUES 
+        ( , ),
+        ( , );       
+''')
+"""
+# Tabela pessoas
 conn.cursor.execute('''
     INSERT INTO pessoas (id_pessoa, nome, email) VALUES 
         (1, "Jéssica Lizar", "jessicalizar@gmail.com"),
@@ -76,8 +96,8 @@ conn.cursor.execute('''
 
 #Tabela emprestimo
 conn.cursor.execute('''
-    INSERT INTO emprestimos(id_livro, id_exemplar, id_usuario, DataEmprestimo, DataDevolucao, DataDevolvido) VALUES
-        (1, 1, 1, 20/08/2024, 27/08/2024, NULL)
+    INSERT INTO emprestimos(id_exemplar, id_usuario, DataEmprestimo, DataDevolucao, DataDevolvido) VALUES
+        (1, 1, '20/08/2024', '27/08/2024', NULL)
 ''')
    
 
