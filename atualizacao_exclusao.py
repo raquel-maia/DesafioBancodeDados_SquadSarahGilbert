@@ -11,15 +11,16 @@ import conexao as conn
 
 # Excluir | Nadi
 #Excluir tabelas
-# conn.cursor.execute('DROP TABLE livros_generos')
-# conn.cursor.execute('DROP TABLE autores_livros')
-# conn.cursor.execute('DROP TABLE livros')
-# conn.cursor.execute('DROP TABLE generos')
-# conn.cursor.execute('DROP TABLE exemplares')
-# conn.cursor.execute('DROP TABLE pessoas')
-# conn.cursor.execute('DROP TABLE usuarios')
-# conn.cursor.execute('DROP TABLE autores')
-# conn.cursor.execute('DROP TABLE ')
+'''
+conn.cursor.execute('DROP TABLE livros')
+conn.cursor.execute('DROP TABLE generos')
+conn.cursor.execute('DROP TABLE livros_generos')
+conn.cursor.execute('DROP TABLE exemplares')
+conn.cursor.execute('DROP TABLE pessoas')
+conn.cursor.execute('DROP TABLE usuarios')
+conn.cursor.execute('DROP TABLE autores')
+conn.cursor.execute('DROP TABLE autores_livros')
+'''
 
 #Excluir um autor
 id_autor = 7
