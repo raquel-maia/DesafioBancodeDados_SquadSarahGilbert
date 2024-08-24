@@ -7,10 +7,15 @@ um autor.
 
 import conexao as conn
 
-# Atualizar | Jessica+
+##############################################################################
+# Atualizar | Jessica
+##############################################################################
 
+
+##############################################################################
 # Excluir | Nadi
-#Excluir tabelas
+##############################################################################
+# Excluir tabelas
 
 conn.cursor.execute('DROP TABLE IF EXISTS livros')
 conn.cursor.execute('DROP TABLE IF EXISTS generos')
