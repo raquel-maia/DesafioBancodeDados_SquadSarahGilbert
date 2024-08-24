@@ -37,7 +37,7 @@ if loan_results:
 ##############################################################################
 print('\nVerificar o número de cópias disponíveis de um determinado livro: ')
 #var_id_livro = 1
-var_id_livro = 5
+var_id_livro = 3
 check_livro_emprestimo = conn.cursor.execute(f'''
                                 SELECT livros.titulo,emprestimos.DataEmprestimo, emprestimos.DataDevolucao
                                 FROM emprestimos
@@ -69,7 +69,8 @@ if check_livro_emprestimo_r:
                                 GROUP by livros.id_livro
                                 ''')
     for idlivroemprest, qtdlivroemprest in qtd_emprestimo: 
-        print(f'- Livro id: {idlivroemprest}\n- Cópias disponiveis: {int(qtdlivro) - int(qtdlivroemprest)}')
+        resp = qtdlivro - qtdlivroemprest
+        print(f'- Livro id: {idlivroemprest}\n- Cópias disponiveis: {resp}')
 
 # livro não possui nenhum exemplar em emprestimo
 else: 
