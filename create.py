@@ -97,13 +97,11 @@ conn.cursor.execute('''
         id_emprestimo INTEGER PRIMARY KEY NOT NULL,
         id_exemplar INTEGER NOT NULL,
         id_usuario INTEGER NOT NULL,
-        id_livro INTEGER NOT NULL, 
         DataEmprestimo DATE,
         DataDevolucao DATE,
         DataDevolvido DATE,
         FOREIGN KEY (id_exemplar) REFERENCES exemplares(id_exemplar) ON DELETE NO ACTION ON UPDATE NO ACTION,
-        FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario) ON DELETE NO ACTION ON UPDATE NO ACTION,
-        FOREIGN KEY (id_livro) REFERENCES livros(id_livro) ON DELETE NO ACTION ON UPDATE NO ACTION    
+        FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario) ON DELETE NO ACTION ON UPDATE NO ACTION
     );
 ''')
 
