@@ -25,8 +25,7 @@ conn.cursor.execute('DROP TABLE IF EXISTS emprestimos')
 
 #Excluir um autor
 id_autor = 7
-#conn.cursor.execute('DELETE FROM autores WHERE id = id_autor')
-conn.cursor.execute('DROP TABLE IF EXISTS livros')
+conn.cursor.execute('DELETE FROM autores WHERE id = id_autor')
 
 conn.conexao.commit()
 conn.conexao.close()
