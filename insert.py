@@ -18,18 +18,23 @@ import conexao as conn
 # ''')
 
 # """# Tabela generos
-# conn.cursor.execute('''
-#     INSERT INTO generos (id_genero, nome) VALUES 
-#         ( , ""),
-#         ( , "");       
-# ''')
+#conn.cursor.execute('INSERT INTO generos (id_genero, nome) VALUES (1, "Programação")')
+#conn.cursor.execute('INSERT INTO generos (id_genero, nome) VALUES (2, "Aprendizado de maquina")')
+#conn.cursor.execute('INSERT INTO generos (id_genero, nome) VALUES (3, "Python")')
+                    
+#gen=conn.cursor.execute('select * from generos')
+#for g in gen:
+ #   print(g)
 
+    
 # # Tabela livro_generos
-# conn.cursor.execute('''
-#     INSERT INTO livros_generos (id_livro, id_genero) VALUES 
-#         ( , ),
-#         ( , );       
-# ''')
+#conn.cursor.execute('INSERT INTO livros_generos (id_livro, id_genero) VALUES (1 ,2 )')
+#conn.cursor.execute('INSERT INTO livros_generos (id_livro, id_genero) VALUES (2, 1)')
+#conn.cursor.execute('INSERT INTO livros_generos (id_livro, id_genero) VALUES (5, 1)')
+#conn.cursor.execute('INSERT INTO livros_generos (id_livro, id_genero) VALUES (3, 3)')
+#conn.cursor.execute('INSERT INTO livros_generos (id_livro, id_genero) VALUES(4, 3);')    
+
+
 
 # # Tabela exemplares
 # conn.cursor.execute('''
@@ -95,10 +100,10 @@ import conexao as conn
 # ''')
 
 #Tabela emprestimo
-conn.cursor.execute('''
-    INSERT INTO emprestimos(id_exemplar, id_usuario, id_livro, DataEmprestimo, DataDevolucao, DataDevolvido) VALUES
-        (1, 1, 1, '20/08/2024', '27/08/2024', NULL);
-''')
+#conn.cursor.execute('''
+    #INSERT INTO emprestimos(id_exemplar, id_usuario, id_livro, DataEmprestimo, DataDevolucao, DataDevolvido) VALUES
+     #   (1, 1, 1, '20/08/2024', '27/08/2024', NULL);
+#''')
    
 
 
