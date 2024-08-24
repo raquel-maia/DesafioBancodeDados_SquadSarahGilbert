@@ -27,7 +27,7 @@ for g in gen:
     print(g)'''
 
     
-  #Tabela livro_generos
+#Tabela livro_generos
 conn.cursor.execute('INSERT INTO livros_generos (id_livro, id_genero) VALUES (1 ,2 )')
 conn.cursor.execute('INSERT INTO livros_generos (id_livro, id_genero) VALUES (2, 1)')
 conn.cursor.execute('INSERT INTO livros_generos (id_livro, id_genero) VALUES (5, 1)')
@@ -110,7 +110,8 @@ conn.cursor.execute('''
 #Tabela emprestimo
 conn.cursor.execute('''
     INSERT INTO emprestimos(id_exemplar, id_usuario, DataEmprestimo, DataDevolucao, DataDevolvido) VALUES
-        (1, 1,'20/08/2024', '27/08/2024', NULL);
+        (1, 1,'20/08/2024', '27/08/2024', NULL),
+        (5, 2,'20/08/2024', '27/08/2024', NULL);
 ''')
    
 
