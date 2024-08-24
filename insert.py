@@ -35,12 +35,20 @@ conn.cursor.execute('INSERT INTO livros_generos (id_livro, id_genero) VALUES (3,
 conn.cursor.execute('INSERT INTO livros_generos (id_livro, id_genero) VALUES(4, 3);')    
 
 
-
 #Tabela exemplares
 conn.cursor.execute('''
      INSERT INTO exemplares (id_exemplar, id_livro) VALUES 
-         ( , ),
-         ( , );       
+        (1,1),
+        (2,1),
+        (3,2),
+        (4,2),
+        (5,3),
+        (6,4),
+        (7,4),
+        (8,5),
+        (9,5),
+        (10,5),
+        (11,5)                    
  ''')
 
 #Tabela pessoas
@@ -101,8 +109,8 @@ conn.cursor.execute('''
 
 #Tabela emprestimo
 conn.cursor.execute('''
-    INSERT INTO emprestimos(id_exemplar, id_usuario, id_livro, DataEmprestimo, DataDevolucao, DataDevolvido) VALUES
-        (1, 1, 1, '20/08/2024', '27/08/2024', NULL);
+    INSERT INTO emprestimos(id_exemplar, id_usuario, DataEmprestimo, DataDevolucao, DataDevolvido) VALUES
+        (1, 1,'20/08/2024', '27/08/2024', NULL);
 ''')
    
 
