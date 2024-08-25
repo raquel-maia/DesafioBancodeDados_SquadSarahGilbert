@@ -42,9 +42,6 @@ Com o auxílio do Trello, Git, GitHub, e do canal do Discord do squad, conseguim
 
 ![alt text](banco.png)
 
-<br/>
-<br/>
-
 ## Orientações para sua contribuição com boas práticas:
 * Evitar caracteres especiais;
 * Sempre realizar um pull da branch principal antes de realizar o PR; 
