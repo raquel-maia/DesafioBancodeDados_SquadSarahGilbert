@@ -3,6 +3,7 @@
 Escreva consultas SQL para realizar as seguintes operações:
 '''
 import conexao as conn
+from datetime import datetime
 
 def print_consulta(consulta):
     for row in consulta:
@@ -20,7 +21,7 @@ print_consulta(list_books)
 ##############################################################################
 print('\nEncontrar todos os livros emprestados no momento: ')
 loan_cursor = conn.cursor.execute('''
-                                SELECT livros.titulo,emprestimos.DataEmprestimo, emprestimos.DataDevolucao
+                                SELECT livros.titulo, emprestimos.DataEmprestimo, emprestimos.DataDevolucao
                                 FROM emprestimos
                                 LEFT JOIN exemplares ON emprestimos.id_exemplar = exemplares.id_exemplar
                                 LEFT JOIN Livros on exemplares.id_livro = livros.id_livro
@@ -36,10 +37,10 @@ if loan_results:
 # Verificar o número de cópias disponíveis de um determinado livro. | Jéssica
 ##############################################################################
 print('\nVerificar o número de cópias disponíveis de um determinado livro: ')
-#var_id_livro = 1
+# var_id_livro = 1
 var_id_livro = 3
 check_livro_emprestimo = conn.cursor.execute(f'''
-                                SELECT livros.titulo,emprestimos.DataEmprestimo, emprestimos.DataDevolucao
+                                SELECT livros.titulo, emprestimos.DataEmprestimo, emprestimos.DataDevolucao
                                 FROM emprestimos
                                 LEFT JOIN exemplares ON emprestimos.id_exemplar = exemplares.id_exemplar
                                 LEFT JOIN Livros on exemplares.id_livro = livros.id_livro
@@ -49,18 +50,19 @@ check_livro_emprestimo = conn.cursor.execute(f'''
 check_livro_emprestimo_r = check_livro_emprestimo.fetchall()
 
 check_exemplares = conn.cursor.execute(f'''
-                                SELECT id_livro,count(1) as qtd_livros
+                                SELECT id_livro, count(1) as qtd_livros
                                 FROM exemplares
                                 WHERE id_livro = {var_id_livro}
                                 GROUP BY id_livro
                                 ''')
-for idlivro,qtdlivro in check_exemplares: pass
-    #print(f'- Livro id: {idlivro}\n- Cópias disponiveis: {qtdlivro}')
+for idlivro, qtdlivro in check_exemplares: 
+    pass
+    # print(f'- Livro id: {idlivro}\n- Cópias disponiveis: {qtdlivro}')
 
-# algum exemplar desse livro está emprestado
+# Algum exemplar desse livro está emprestado
 if check_livro_emprestimo_r:
     qtd_emprestimo = conn.cursor.execute(f'''
-                                SELECT livros.id_livro,count(1)
+                                SELECT livros.id_livro, count(1)
                                 FROM emprestimos
                                 LEFT JOIN exemplares ON emprestimos.id_exemplar = exemplares.id_exemplar
                                 LEFT JOIN Livros on exemplares.id_livro = livros.id_livro
@@ -72,7 +74,7 @@ if check_livro_emprestimo_r:
         resp = qtdlivro - qtdlivroemprest
         print(f'- Livro id: {idlivroemprest}\n- Cópias disponiveis: {resp}')
 
-# livro não possui nenhum exemplar em emprestimo
+# Livro não possui nenhum exemplar em emprestimo
 else: 
     print(f'- Livro id: {idlivro}\n- Cópias disponiveis: {qtdlivro}')
 
@@ -80,7 +82,15 @@ else:
 # Mostrar os empréstimos em atraso. | Rosana
 ##############################################################################
 print('\nMostrar os empréstimos em atraso: ')
-c = conn.cursor.execute("SELECT titulo FROM livros as lv INNER JOIN generos as gn ON lv.id_livro = gn.id_genero")
+data_atual = datetime.now().strftime('%Y-%m-%d')
+c = conn.cursor.execute('''
+    SELECT livros.titulo, usuarios.nome, emprestimos.data_emprestimo, emprestimos.prazo_devolucao
+    FROM emprestimos
+    JOIN exemplares ON emprestimos.id_exemplar = exemplares.id_exemplar
+    JOIN livros ON exemplares.id_livro = livros.id_livro
+    JOIN usuarios ON emprestimos.id_usuario = usuarios.id_usuario
+    WHERE emprestimos.prazo_devolucao < ? AND emprestimos.data_devolucao IS NULL
+''', (data_atual,))
 print_consulta(c)
 
 conn.conexao.commit()
