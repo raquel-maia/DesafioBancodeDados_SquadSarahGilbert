@@ -1,5 +1,15 @@
 import conexao as conn
 
+conn.cursor.execute('DROP TABLE IF EXISTS livros')
+conn.cursor.execute('DROP TABLE IF EXISTS generos')
+conn.cursor.execute('DROP TABLE IF EXISTS livros_generos')
+conn.cursor.execute('DROP TABLE IF EXISTS exemplares')
+conn.cursor.execute('DROP TABLE IF EXISTS pessoas')
+conn.cursor.execute('DROP TABLE IF EXISTS usuarios')
+conn.cursor.execute('DROP TABLE IF EXISTS autores')
+conn.cursor.execute('DROP TABLE IF EXISTS autores_livros')
+conn.cursor.execute('DROP TABLE IF EXISTS emprestimos')
+
 def criar_tabelas():
     cursor = conn.conexao.cursor()
 
@@ -90,10 +100,9 @@ def criar_tabelas():
             id_emprestimo INTEGER PRIMARY KEY NOT NULL,
             id_exemplar INTEGER NOT NULL,
             id_usuario INTEGER NOT NULL,
-            DataEmprestimo DATE,
-            DataDevolucao DATE,
-            DataDevolvido DATE,
-            prazo_devolucao DATE,
+            data_emprestimo DATE,
+            data_devolucao DATE,
+            data_devolvido DATE,
             FOREIGN KEY (id_exemplar) REFERENCES exemplares(id_exemplar) ON DELETE NO ACTION ON UPDATE NO ACTION,
             FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario) ON DELETE NO ACTION ON UPDATE NO ACTION
         );
