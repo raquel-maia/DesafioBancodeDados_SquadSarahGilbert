@@ -14,8 +14,13 @@ from datetime import datetime
 
 var_date = str(datetime.now().strftime("%d/%m/%Y"))
 conn.cursor.execute(f'''UPDATE emprestimos
-                        SET data_devolvido = '{var_date}'
+                        SET data_devolucao = '23/08/2024'
                         WHERE id_emprestimo = 1''')
+
+var_date = str(datetime.now().strftime("%d/%m/%Y"))
+conn.cursor.execute(f'''UPDATE emprestimos
+                        SET data_devolvido = '{var_date}'
+                        WHERE id_emprestimo = 2''')
 
 
 ##############################################################################
