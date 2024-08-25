@@ -82,14 +82,14 @@ else:
 # Mostrar os empréstimos em atraso. | Rosana
 ##############################################################################
 print('\nMostrar os empréstimos em atraso: ')
-data_atual = datetime.now().strftime('%Y-%m-%d')
+data_atual = datetime.now().strftime('%d/%m/%Y')
 c = conn.cursor.execute('''
     SELECT livros.titulo, usuarios.id_usuario, emprestimos.data_emprestimo, emprestimos.data_devolucao
     FROM emprestimos
     JOIN exemplares ON emprestimos.id_exemplar = exemplares.id_exemplar
     JOIN livros ON exemplares.id_livro = livros.id_livro
     JOIN usuarios ON emprestimos.id_usuario = usuarios.id_usuario
-    WHERE emprestimos.data_devolucao > ? AND emprestimos.data_devolucao IS NULL
+    WHERE emprestimos.data_devolvido IS NULL AND emprestimos.data_devolucao < ? 
 ''', (data_atual,))
 print_consulta(c)
 
