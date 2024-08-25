@@ -21,12 +21,12 @@ print_consulta(list_books)
 ##############################################################################
 print('\nEncontrar todos os livros emprestados no momento: ')
 loan_cursor = conn.cursor.execute('''
-                                SELECT livros.titulo, emprestimos.DataEmprestimo, emprestimos.DataDevolucao
+                                SELECT livros.titulo, emprestimos.data_emprestimo, emprestimos.data_devolucao
                                 FROM emprestimos
                                 LEFT JOIN exemplares ON emprestimos.id_exemplar = exemplares.id_exemplar
                                 LEFT JOIN Livros on exemplares.id_livro = livros.id_livro
                                 LEFT JOIN usuarios ON emprestimos.id_usuario = usuarios.id_usuario
-                                WHERE emprestimos.DataDevolvido IS NULL
+                                WHERE emprestimos.data_devolvido IS NULL
                           ''')
 loan_results = loan_cursor.fetchall()
 
@@ -40,7 +40,7 @@ print('\nVerificar o número de cópias disponíveis de um determinado livro: ')
 # var_id_livro = 1
 var_id_livro = 3
 check_livro_emprestimo = conn.cursor.execute(f'''
-                                SELECT livros.titulo, emprestimos.DataEmprestimo, emprestimos.DataDevolucao
+                                SELECT livros.titulo, emprestimos.data_emprestimo, emprestimos.data_devolucao
                                 FROM emprestimos
                                 LEFT JOIN exemplares ON emprestimos.id_exemplar = exemplares.id_exemplar
                                 LEFT JOIN Livros on exemplares.id_livro = livros.id_livro
@@ -84,12 +84,12 @@ else:
 print('\nMostrar os empréstimos em atraso: ')
 data_atual = datetime.now().strftime('%Y-%m-%d')
 c = conn.cursor.execute('''
-    SELECT livros.titulo, usuarios.nome, emprestimos.data_emprestimo, emprestimos.prazo_devolucao
+    SELECT livros.titulo, usuarios.id_usuario, emprestimos.data_emprestimo, emprestimos.data_devolucao
     FROM emprestimos
     JOIN exemplares ON emprestimos.id_exemplar = exemplares.id_exemplar
     JOIN livros ON exemplares.id_livro = livros.id_livro
     JOIN usuarios ON emprestimos.id_usuario = usuarios.id_usuario
-    WHERE emprestimos.prazo_devolucao < ? AND emprestimos.data_devolucao IS NULL
+    WHERE emprestimos.data_devolucao > ? AND emprestimos.data_devolucao IS NULL
 ''', (data_atual,))
 print_consulta(c)
 

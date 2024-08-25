@@ -109,7 +109,7 @@ conn.cursor.execute('''
 
 #Tabela emprestimo
 conn.cursor.execute('''
-    INSERT INTO emprestimos(id_exemplar, id_usuario, DataEmprestimo, DataDevolucao, DataDevolvido) VALUES
+    INSERT INTO emprestimos(id_exemplar, id_usuario, data_emprestimo, data_devolucao, data_devolvido) VALUES
         (1, 1,'20/08/2024', '27/08/2024', NULL),
         (5, 2,'20/08/2024', '27/08/2024', NULL);
 ''')

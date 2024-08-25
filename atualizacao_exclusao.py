@@ -14,7 +14,7 @@ from datetime import datetime
 
 var_date = str(datetime.now().strftime("%d/%m/%Y"))
 conn.cursor.execute(f'''UPDATE emprestimos
-                        SET DataDevolvido = '{var_date}'
+                        SET data_devolvido = '{var_date}'
                         WHERE id_emprestimo = 1''')
 
 
@@ -36,7 +36,7 @@ conn.cursor.execute('DROP TABLE IF EXISTS emprestimos')'''
 #Excluir um autor
 var_id_autor = 8
 conn.cursor.execute(f'DELETE FROM autores WHERE id_autor = {var_id_autor}')
-
+#Excluir um livro
 var_id_livro = 5
 conn.cursor.execute(f'DELETE FROM livros WHERE id_livro = {var_id_livro}')
 
