@@ -4,7 +4,7 @@
 
 > ## 👩‍💻**Squad Sarah Gilbert**👩‍💻 | 📚 Gerenciamento Biblioteca 📚 | 🗂️ Banco de Dados 🗂️
 <br/>
-O primeiro passo na elaboração do desafio foi realizar uma conferência online com todos os membros da Squad. Utilizando como base o desafio anterior,fizemos o desenvolvimento do banco de dados do respectivo sistema de Gerenciamento de Biblioteca. Em seguida, elaboramos a modelagem do desafio para visualizar o escopo do banco de dados, se baseando nas instruções fornecidas pela equipe da Womarkers Code.
+O primeiro passo na elaboração do desafio foi realizar uma conferência online com todos os membros da Squad. Utilizando como base o desafio anterior, fizemos o desenvolvimento do banco de dados do respectivo sistema de Gerenciamento de Biblioteca. Em seguida, elaboramos a modelagem do desafio para visualizar o escopo do banco de dados, se baseando nas instruções fornecidas pela equipe da Womarkers Code.
 <br/>
 <br/>
 
