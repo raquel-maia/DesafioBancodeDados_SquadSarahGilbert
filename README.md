@@ -46,4 +46,4 @@ Com o auxílio do Trello, Git, GitHub, e do canal do Discord do squad, conseguim
 * Evitar caracteres especiais;
 * Sempre realizar um pull da branch principal antes de realizar o PR; 
 * Verificar se existem PR's em aberto antes de realizar uma nova;
-* Adicionar a extensão ".py" ao nome do arquivo.
+* Adicionar a extensão ".py" ao nome do arquivo!
