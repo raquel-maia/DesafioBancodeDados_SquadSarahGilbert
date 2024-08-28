@@ -35,7 +35,7 @@ Com o auxílio do Trello, Git, GitHub, e do canal do Discord do squad, conseguim
 | Lívia Boscolo | emprestimos | Encontrar os livros emprestados | ✅
 | Michelle Martins da Costa | generos e livros_generos | ---- | ✅
 | Nadi Duno | pessoas e usuarios | Exclusões | ✅
-| Raquel de Oliveira Maia | livros | Listas os livros disponíveis | ✅
+| Raquel de Oliveira Maia | livros | Listas os livros disponíveis (criação de tabelas e inserts) | ✅
 | Rosana TSF | ---- | Mostrar os empréstimos em atraso | ✅
 
 ## Diagrama de modelagem das tabelas: 
